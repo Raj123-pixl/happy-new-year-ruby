@@ -38,16 +38,26 @@ button{
     cursor:pointer;
     background:#ff4d6d;
     color:#fff;
-    margin-top:20px;
+    margin-top:15px;
 }
 
 #message{
     display:none;
     color:#fff;
     font-size:22px;
-    margin-top:20px;
+    margin-top:15px;
 }
 
+/* PHOTO */
+#photo{
+    display:none;
+    margin-top:20px;
+    width:220px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* HEARTS */
 .heart{
     position:fixed;
     bottom:-20px;
@@ -66,22 +76,31 @@ button{
 
 <header>
     <h1>Happy New Year Ruby ❤️</h1>
+
     <button onclick="startMagic()">Click for Surprise ✨</button>
+
     <div id="message">Wishing you endless happiness 💖</div>
+
+    <!-- PHOTO UPLOAD -->
+    <input type="file" accept="image/*" onchange="loadPhoto(event)" style="margin-top:15px;">
+
+    <img id="photo">
 </header>
 
+<!-- MUSIC -->
 <audio id="music" src="music.mp3" loop></audio>
 
 <script>
 function startMagic(){
     document.getElementById("message").style.display="block";
 
-    const music=document.getElementById("music");
+    const music = document.getElementById("music");
     music.play().catch(()=>{});
 
     setInterval(createHeart,300);
 }
 
+/* HEART FUNCTION */
 function createHeart(){
     const heart=document.createElement("div");
     heart.className="heart";
@@ -90,9 +109,14 @@ function createHeart(){
     heart.style.fontSize=(20+Math.random()*20)+"px";
     document.body.appendChild(heart);
 
-    setTimeout(()=>{
-        heart.remove();
-    },6000);
+    setTimeout(()=>heart.remove(),6000);
+}
+
+/* PHOTO LOAD FUNCTION */
+function loadPhoto(event){
+    const img = document.getElementById("photo");
+    img.src = URL.createObjectURL(event.target.files[0]);
+    img.style.display = "block";
 }
 </script>
 
