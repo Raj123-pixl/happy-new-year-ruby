@@ -1,80 +1,73 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Happy New Year Jannat ❤️</title>
+<title>Happy New Year Ruby ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
 <style>
 body{
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-  overflow:hidden;
-  text-align:center;
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    overflow:hidden;
+    text-align:center;
 }
 
 header{
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 }
 
 h1{
-  font-family:'Dancing Script',cursive;
-  font-size:3.2rem;
-  color:#fff;
-}
-
-.subtitle{
-  color:#fff;
-  opacity:0.9;
-  font-size:1.1rem;
+    font-family:'Dancing Script',cursive;
+    font-size:3rem;
+    color:#fff;
 }
 
 button{
-  padding:15px 30px;
-  border:none;
-  border-radius:30px;
-  font-size:18px;
-  cursor:pointer;
-  background:#ff4d6d;
-  color:#fff;
-  margin-top:20px;
+    padding:15px 30px;
+    border:none;
+    border-radius:30px;
+    font-size:18px;
+    cursor:pointer;
+    background:#ff4d6d;
+    color:#fff;
+    margin-top:15px;
 }
 
 #message{
-  display:none;
-  color:#fff;
-  font-size:22px;
-  margin-top:20px;
+    display:none;
+    color:#fff;
+    font-size:22px;
+    margin-top:15px;
 }
 
 /* PHOTO */
 #photo{
-  display:none;
-  margin-top:20px;
-  width:220px;
-  border-radius:15px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    display:none;
+    margin-top:20px;
+    width:220px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
 /* HEARTS */
 .heart{
-  position:fixed;
-  bottom:-20px;
-  font-size:24px;
-  animation:floatUp 6s linear infinite;
+    position:fixed;
+    bottom:-20px;
+    font-size:24px;
+    animation:floatUp 6s linear infinite;
 }
 
 @keyframes floatUp{
-  0%{transform:translateY(0);opacity:1;}
-  100%{transform:translateY(-110vh);opacity:0;}
+    0%{transform:translateY(0);opacity:1;}
+    100%{transform:translateY(-110vh);opacity:0;}
 }
 </style>
 </head>
@@ -82,18 +75,16 @@ button{
 <body>
 
 <header>
-  <h1>Happy New Year Jannat ❤️</h1>
-  <p class="subtitle">You make every moment special ✨</p>
+    <h1>Happy New Year Ruby ❤️</h1>
 
-  <button onclick="startMagic()">Click for Surprise ✨</button>
+    <button onclick="startMagic()">Click for Surprise ✨</button>
 
-  <div id="message">
-    May this year bring you happiness, love & smiles 💖
-  </div>
+    <div id="message">Wishing you endless happiness 💖</div>
 
-  <!-- PHOTO UPLOAD -->
-  <input type="file" accept="image/*" onchange="loadPhoto(event)" style="margin-top:15px;">
-  <img id="photo">
+    <!-- PHOTO UPLOAD -->
+    <input type="file" accept="image/*" onchange="loadPhoto(event)" style="margin-top:15px;">
+
+    <img id="photo">
 </header>
 
 <!-- MUSIC -->
@@ -101,34 +92,34 @@ button{
 
 <script>
 function startMagic(){
-  document.getElementById("message").style.display="block";
+    document.getElementById("message").style.display="block";
 
-  const music = document.getElementById("music");
-  music.currentTime = 0;
-  music.play().catch(()=>{});
+    const music = document.getElementById("music");
+    music.play().catch(()=>{});
 
-  setInterval(createHeart,300);
+    setInterval(createHeart,300);
 }
 
-/* HEART */
+/* HEART FUNCTION */
 function createHeart(){
-  const heart = document.createElement("div");
-  heart.className = "heart";
-  heart.innerHTML = "❤️";
-  heart.style.left = Math.random()*100 + "vw";
-  heart.style.fontSize = (20 + Math.random()*20) + "px";
-  document.body.appendChild(heart);
+    const heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="❤️";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(20+Math.random()*20)+"px";
+    document.body.appendChild(heart);
 
-  setTimeout(()=>heart.remove(),6000);
+    setTimeout(()=>heart.remove(),6000);
 }
 
-/* PHOTO PREVIEW */
+/* PHOTO LOAD FUNCTION */
 function loadPhoto(event){
-  const img = document.getElementById("photo");
-  img.src = URL.createObjectURL(event.target.files[0]);
-  img.style.display = "block";
+    const img = document.getElementById("photo");
+    img.src = URL.createObjectURL(event.target.files[0]);
+    img.style.display = "block";
 }
 </script>
 
 </body>
 </html>
+
