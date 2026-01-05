@@ -48,7 +48,7 @@
     }
 
     button {
-        margin-top: 25px;
+        margin-top: 15px;
         padding: 12px 25px;
         font-size: 1em;
         border: none;
@@ -62,6 +62,15 @@
     button:hover {
         background: #ff4f81;
         color: white;
+    }
+
+    .photo {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        border: 4px solid white;
+        object-fit: cover;
+        margin: 15px 0;
     }
 
     @keyframes heartbeat {
@@ -95,15 +104,52 @@
 
 <body>
 
+<!-- 🎵 Birthday Song (button se chalega) -->
+<audio id="song" loop>
+  <source src="https://www.fesliyanstudios.com/play-mp3/387" type="audio/mpeg">
+</audio>
+
 <div class="container">
     <h1>🎉 Happy Birthday 🎉</h1>
     <h2>Ruby Yadav 💖</h2>
+
+    <!-- 📸 Ruby khud photo add kare -->
+    <input type="file" accept="image/*" onchange="loadPhoto(event)">
+    <br>
+    <img id="preview" class="photo">
 
     <div class="heart">❤️</div>
 
     <p>
         Today is a special day because someone very special was born.  
-        Ruby, your smile makes everything brighter and your presence makes
-        the world more beautiful.  
-        May your li
-        
+        Ruby, your smile makes everything brighter and your presence makes  
+        the world more beautiful. May your life always be filled with  
+        happiness, love, and all your dreams come true ✨💖
+    </p>
+
+    <!-- 🎵 Song play button -->
+    <button onclick="playSong()">▶ Play Birthday Song 🎵</button>
+</div>
+
+<script>
+function playSong(){
+    document.getElementById("song").play();
+}
+
+function loadPhoto(event){
+    const img = document.getElementById("preview");
+    img.src = URL.createObjectURL(event.target.files[0]);
+}
+
+// Confetti animation
+for (let i = 0; i < 50; i++) {
+    let confetti = document.createElement("div");
+    confetti.className = "confetti";
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    document.body.appendChild(confetti);
+}
+</script>
+
+</body>
+</html>
