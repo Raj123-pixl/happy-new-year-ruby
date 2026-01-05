@@ -1,2 +1,2 @@
-# happy-new-year-ruby
-Happy New Year website for Ruby Mam
+# happy-birthday-dear-ruby
+Happy birthday website for Ruby Mam
